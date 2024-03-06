@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+//Z pliku pobierz rozmiar tablicy jednowymiarowej. Wypisz pobran� liczb�. Nastepnie wype�nij tablic� o tym rozmiarze liczbami losowymi ca�kowitymi <10;50>. Wy�wietl otrzyman� tablic�, posortuj jej elementy i wy�wietl j� posortowan�
+
+
+int main()
+{
+    int n = 0;
+
+    ifstream odczyt("danezad1.txt");
+    int arr[n];
+    odczyt>>n;
+    cout<<"Rozmiar tablicy: "<<n<<endl;
+    for(int i = 0; i < n-1; i++){
+        arr[i] = rand() % (41 + 10);
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    cout<<"Tablica po posortowaniu: "<<endl;
+    for (int j = 0; j < n; j++) {
+    for (int k = 0; k < n - j - 1; k++) {
+        if (arr[k + 1] < arr[k]) {
+            int temp = arr[k];
+            arr[k] = arr[k + 1];
+            arr[k + 1] = temp;
+        }
+    }
+    cout << arr[j] << " ";
+}
+
+    return 0;
+}
